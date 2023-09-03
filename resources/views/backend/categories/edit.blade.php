@@ -14,8 +14,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Description</label>
-                        <input type="text" name="description" value="{{ $category->description }}" class="form-control"
-                            id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <textarea type="text" id="editor" name="description" value="" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">{!! $category->description !!}</textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -23,4 +23,14 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
 @endsection

@@ -3,11 +3,13 @@
 
 @section('content')
     <div class="container">
+        {{-- Successful massage --}}
         @if (session()->has('success'))
             <div class="alert alert-success fw-medium">
                 {{ session()->get('success') }}
             </div>
         @endif
+
         <div class="card">
             <div class="card-header d-flex justify-content-between ">
                 <div>Category List</div>

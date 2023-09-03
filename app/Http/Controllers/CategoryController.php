@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Exception;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ class CategoryController extends Controller
         return view('backend.categories.create');
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
         try {
             $data = $request->all();
@@ -28,7 +29,7 @@ class CategoryController extends Controller
             return redirect()->route('category.index')->withSuccess('Category Insert Successfully Done');
 
         } catch (Exception $e) {
-            dd($e->getMessage());
+            return redirect()->route('category.create')->withErrors($e->getMessage());
         }
     }
 

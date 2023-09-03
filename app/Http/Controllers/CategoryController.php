@@ -15,6 +15,13 @@ class CategoryController extends Controller
         $categories = Category::all();
         return view('backend.categories.index', compact('categories'));
     }
+    // Route::get('/', function () {
+    //     $links = Link::all()->sortDesc();
+    //     return view('index', [
+    //         'links' => $links,
+    //         'lists' => LinkList::all()
+    //     ]);
+    // })
 
     public function create()
     {
@@ -44,5 +51,11 @@ class CategoryController extends Controller
         $data = $request->except('_token');
         Category::where('id', $id)->update($data);
         return redirect()->route('category.index')->withSuccess('Category Updated Successfully Done');
+    }
+
+    public function delete($id)
+    {
+        Category::where('id', $id)->delete($id);
+        return redirect()->route('category.index')->withMessage('Category Delete Successfully Done');
     }
 }

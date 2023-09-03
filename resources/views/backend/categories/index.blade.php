@@ -10,6 +10,13 @@
             </div>
         @endif
 
+        {{-- Delete Message --}}
+        @if (session()->has('message'))
+            <div class="alert alert-danger fw-medium">
+                {{ session()->get('message') }}
+            </div>
+        @endif
+
         <div class="card">
             <div class="card-header d-flex justify-content-between ">
                 <div>Category List</div>
@@ -38,7 +45,9 @@
                                     <a href="" class="btn btn-success btn-sm">Show</a>
                                     <a href="{{ route('category.edit', $category->id) }}"
                                         class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="{{ route('category.delete', $category->id) }}"
+                                        onclick="return confirm('Do you want to delete this item?')"
+                                        class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

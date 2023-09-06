@@ -21,8 +21,29 @@
             <div class="card-header d-flex justify-content-between ">
                 <div>Category List</div>
 
-                <div>
+                {{-- <div>
                     <a href="{{ route('category.create') }}" class=" btn btn-primary btn-sm">Add New Category</a>
+                    <a href="" class=" btn btn-primary btn-sm">Download PDF</a>
+                    <a href="" class=" btn btn-primary btn-sm">Download Excel</a>
+                    <a href="" class=" btn btn-primary btn-sm">Download Docs</a>
+                </div> --}}
+                <div class="d-flex justify-content-between ">
+                    <a href="{{ route('category.create') }}" class="btn btn-primary btn-sm me-2">New Category</a>
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Downloads
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('category.report') }}"><i
+                                        class="fa-solid fa-file-pdf"></i> PDF</a></li>
+                            <li><a class="dropdown-item" href="{{ route('category.excel_report') }}"><i
+                                        class="fa-solid fa-file-excel"></i> Excel</a>
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-file-lines"></i> Docs</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="card-body p-3">
